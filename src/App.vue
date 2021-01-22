@@ -1,8 +1,16 @@
 <template>
   <div class="card text-center m-3">
-    <h5 class="card-header">GET Request Ipstack Axios Vue</h5>
-    <div class="card-body">Geo Info: {{GeoInfo}}</div>
+    <h4 class="card-header">GET Request Ipstack Axios Vue</h4>
+    <div class="card-body">Ip: {{ GeoInfo.data.ip }} </div>
+    <div id="list">
+      <ol>
+        <li v-for="info in GeoInfo.data" :key="info">
+          {{info}}
+        </li>
+      </ol>
+    </div>
   </div>
+  <pre>{{ JSON.stringify(GeoInfo, null, '\t') }}</pre>
 </template>
 
 <script>
@@ -33,7 +41,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: left;
   color: #2c3e50;
   margin-top: 60px;
 }
